@@ -1,0 +1,27 @@
+#!/bin/bash
+#download veracrypt and macfuse
+curl -L -o /tmp/veracrypt.dmg https://launchpad.net/veracrypt/trunk/1.24-update8/+download/VeraCrypt_1.24-Update8.dmg
+curl -L -o /tmp/macfuse.dmg https://github.com/osxfuse/osxfuse/releases/download/macfuse-4.1.2/macfuse-4.1.2.dmg
+
+#attach dmgs
+hdiutil attach /tmp/veracrypt.dmg -nobrowse
+hdiutil attach /tmp/macfuse.dmg -nobrowse
+
+#install macfuse
+installer -pkg /Volumes/macFUSE/Install\ macFUSE.pkg -target /
+
+#install veracrypt
+installer -pkg /Volumes/VeraCrypt\ for\ OSX/VeraCrypt_Installer.pkg -target /
+
+
+
+#close mounts
+hdiutil unmount /Volumes/macFUSE
+hdiutil unmount /Volumes/VeraCrypt\ for\ OSX
+
+#cleanup
+rm /tmp/veracrypt.dmg
+rm /tmp/macfuse.dmg
+
+#exit cleanly
+exit 0

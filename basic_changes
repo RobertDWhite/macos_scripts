@@ -1,0 +1,20 @@
+#!/bin/bash
+user=`ls -la /dev/console | cut -d " " -f 4`
+#Set Safari Homepage
+# Add non-admin accounts to XCode Developers group
+/usr/sbin/dseditgroup -o edit -n /Local/Default -a everyone -t group _developer
+#/usr/sbin/dseditgroup -o edit -n /Local/Default -a $user -t group _developer
+dscl . merge /Groups/_developer GroupMembership $user
+dscl . merge /Groups/_lpadmin GroupMembership $user
+dscacheutil -q group -a name _developer
+# Allow staff to add printers without being admin
+/usr/sbin/dseditgroup -o edit -n /Local/Default -a everyone -t group _lpadmin
+dscacheutil -q group -a name lpadmin
+# Show Admin Info on login screen
+sudo -u $user defaults write com.apple.loginwindow AdminHostInfo HostName
+# Change default location for Screenshots
+sudo -u $user defaults write com.apple.screencapture location ~/Pictures/Screenshots
+# Enabling HiDPI display modes (requires restart)
+sudo -u $user defaults write com.apple.windowserver DisplayResolutionEnabled -bool true
+
+#dscl . list /groups

@@ -1,0 +1,19 @@
+#!/bin/bash/
+
+#download Fork
+curl -o /tmp/fork.dmg https://git-fork.com/update/files/Fork.dmg
+
+#attach dmg
+hdiutil attach /tmp/fork.dmg -nobrowse
+
+#copy Fork.app to Applications folder
+cp -r /Volumes/Fork/Fork.app /Applications
+
+#close mount
+hdiutil unmount /Volumes/Fork
+
+#cleanup
+rm /tmp/fork.dmg
+
+#exit cleanly
+exit 0

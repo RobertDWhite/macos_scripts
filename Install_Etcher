@@ -1,0 +1,19 @@
+#!/bin/bash/
+
+#download etcher
+curl -L -o /tmp/etcher.dmg "https://github.com/balena-io/etcher/releases/download/v1.5.116/balenaEtcher-1.5.116.dmg?d_id=f4984ae9-e3b6-4d59-b708-d9f3ac4e9bafR"
+#attach dmgs
+hdiutil attach /tmp/etcher.dmg -nobrowse
+
+#copy etcher.app to Applications folder
+cp -r /Volumes/balenaEtcher\ 1.5.116/balenaEtcher.app /Applications
+
+#close mounts
+hdiutil unmount /Volumes/balenaEtcher\ 1.5.116
+
+#cleanup
+rm /tmp/etcher.dmg
+
+
+#exit cleanly
+exit 0

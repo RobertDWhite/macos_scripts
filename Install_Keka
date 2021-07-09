@@ -1,0 +1,19 @@
+#!/bin/bash/
+
+#download Keka
+curl -o /tmp/keka.dmg -L https://d.keka.io/
+
+#attach dmg
+hdiutil attach /tmp/keka.dmg -nobrowse
+
+#copy Keka.app to Applications folder
+cp -r /Volumes/Keka/Keka.app /Applications/
+
+#close mount
+hdiutil unmount /Volumes/Keka
+
+#cleanup
+rm /tmp/keka.dmg
+
+#exit cleanly
+exit 0

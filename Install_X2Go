@@ -1,0 +1,26 @@
+#!/bin/bash/
+
+#download xquartz and x2go
+curl -L -o /tmp/xquartz.dmg https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.0_rc4/XQuartz-2.8.0_rc4.dmg
+curl -L -o /tmp/x2go.dmg https://code.x2go.org/releases/binary-macosx/x2goclient/releases/4.1.2.2/x2goclient-4.1.2.2.20200213.OSX_10_9.dmg
+
+#attach dmgs
+hdiutil attach /tmp/xquartz.dmg -nobrowse
+hdiutil attach /tmp/x2go.dmg -nobrowse
+
+#install quartz pkg
+installer -pkg /Volumes/XQuartz-2.8.0_rc4/Xquartz.pkg -target /
+
+#copy x2g0.app to Applications folder
+cp -r /Volumes/x2goclient/x2goclient.app /Applications
+
+#close mounts
+hdiutil unmount /Volumes/XQuartz-2.8.0_rc4
+hdiutil unmount /Volumes/x2goclient
+
+#cleanup
+rm /tmp/xquartz.dmg
+rm /tmp/x2go.dmg
+
+#exit cleanly
+exit 0
