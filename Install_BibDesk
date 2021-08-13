@@ -1,0 +1,19 @@
+#!/bin/bash
+#download BibDesk
+curl -L -o /tmp/bibdesk.dmg "https://downloads.sourceforge.net/project/bibdesk/BibDesk/BibDesk-1.8.3/BibDesk-1.8.3.dmg?ts=gAAAAABhFBTkZ2wBGYbbMbu28GcEiqv9Yvsm9ql_bCV_Uk2ecXl4VtoDgoaeHjN4KrRn-6999RzOqknaA0nPWQuS95yT31fOog%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fbibdesk%2Ffiles%2FBibDesk%2FBibDesk-1.8.3%2FBibDesk-1.8.3.dmg%2Fdownload"
+
+#attach dmgs
+hdiutil attach /tmp/bibdesk.dmg -nobrowse
+
+#install BibDesk
+cp -r /Volumes/BibDesk/BibDesk.app /Applications
+
+#close mounts
+hdiutil unmount /Volumes/BibDesk
+
+#cleanup
+rm /tmp/bibdesk.dmg
+
+
+#exit cleanly no matter what....
+exit 0
