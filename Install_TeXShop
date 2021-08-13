@@ -1,0 +1,17 @@
+#!/bin/bash/
+
+#download texshop
+curl -o /tmp/tex.zip https://pages.uoregon.edu/koch/texshop/texshop-64/texshop415.zip
+
+#unzip
+unzip /tmp/tex.zip
+
+#copy texshop to Applications folder
+cp -r /tmp/TeXShop.app /Applications
+
+#cleanup
+rm /tmp/tex.zip
+rm /tmp/TeXShop.app
+
+#exit cleanly
+exit 0
