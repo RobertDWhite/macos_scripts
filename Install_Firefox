@@ -1,0 +1,11 @@
+curl -o /tmp/firefox.dmg -L "https://download.mozilla.org/?product=firefox-latest-ssl&os=osx&lang=en-US"
+
+hdiutil attach /tmp/firefox.dmg
+
+cp -r /Volumes/Firefox/Firefox.app /Applications
+
+hdiutil detach /Volumes/Firefox
+
+rm /tmp/firefox.dmg
+
+exit 0
