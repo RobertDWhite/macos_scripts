@@ -1,0 +1,19 @@
+#!/bin/bash/
+
+#download chrome
+curl -L -o /tmp/chrome.dmg https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+
+#attach dmg
+hdiutil attach /tmp/chrome.dmg
+
+#install chrome
+cp -r /Volumes/Google\ Chrome/Google\ Chrome.app /Applications/
+
+#close mount
+hdiutil unmount /Volumes/Google\ Chrome
+
+#cleanup
+rm /tmp/chrome.dmg
+
+#exit
+exit 0
