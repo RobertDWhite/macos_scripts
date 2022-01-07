@@ -1,0 +1,17 @@
+#download julia
+curl -o /tmp/julia.dmg https://julialang-s3.julialang.org/bin/mac/x64/1.7/julia-1.7.1-mac64.dmg
+
+#attach dmg
+hdiutil attach /tmp/julia.dmg -nobrowse
+
+#copy julia.app to Applications folder
+cp -r /Volumes/Julia-1.7.1/Julia-1.7.app /Applications
+
+#close mount
+hdiutil unmount /Volumes/Julia-1.7.1
+
+#cleanup
+rm /tmp/julia.dmg
+
+#exit cleanly
+exit 0
