@@ -1,0 +1,10 @@
+#!/bin/bash/
+
+curl -o /tmp/vnc.dmg -L https://www.realvnc.com/download/file/viewer.files/VNC-Viewer-6.21.920-MacOSX-x86_64.dmg
+hdiutil attach /tmp/vnc.dmg
+cp -r /Volumes/VNC-Viewer-6.21.920-MacOSX-x86_64/VNC\ Viewer.app /Applications
+hdiutil detach /Volumes/VNC-Viewer-6.21.920-MacOSX-x86_64
+
+rm /tmp/vnc.dmg
+
+exit 0
