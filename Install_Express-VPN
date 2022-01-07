@@ -1,0 +1,7 @@
+curl -o /tmp/express.pkg https://www.expressvpn.com/clients/latest/mac
+
+installer -pkg /tmp/express.pkg -target /
+
+rm /tmp/express.pkg
+
+exit 0
