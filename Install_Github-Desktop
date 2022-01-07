@@ -1,0 +1,7 @@
+curl -o /tmp/github.zip -L https://central.github.com/deployments/desktop/desktop/latest/darwin
+
+cd /tmp && unzip /tmp/github.zip
+cp -r /tmp/GitHub\ Desktop.app
+rm /tmp/github.pkg
+
+exit 0
