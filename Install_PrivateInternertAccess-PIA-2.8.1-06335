@@ -1,0 +1,5 @@
+curl -o /tmp/pia.zip -L https://installers.privateinternetaccess.com/download/pia-macos-2.8.1-06335.zip
+
+cd /tmp && unzip /tmp/pia.zip
+
+cd /tmp/Private\ Internet\ Access\ Installer.app/Contents/MacOS && ./Private\ Internet\ Access
