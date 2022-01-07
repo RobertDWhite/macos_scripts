@@ -1,0 +1,18 @@
+#download cmake
+curl -o /tmp/cmake.tar.gz -L https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-macos10.10-universal.tar.gz
+
+#unzip
+tar -xzf /tmp/cmake.tar.gz
+
+#copy cmake.app to Applications folder
+cp -r /tmp/cmake-3.22.1-macos10.10-universal/CMake.app /Applications/CMake.app
+
+PATH="/Applications/CMake.app/Contents/bin":"$PATH"
+
+"/Applications/CMake.app/Contents/bin/cmake-gui" --install
+
+#cleanup
+rm /tmp/cmake.tar.gz
+
+#exit cleanly
+exit 0
