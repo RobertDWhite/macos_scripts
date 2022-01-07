@@ -1,0 +1,10 @@
+#!/bin/bash/
+
+curl -o /tmp/Discord.dmg -L https://discord.com/api/download?platform=osx
+hdiutil attach /tmp/Discord.dmg
+cp -r /Volumes/Discord/Discord.app /Applications
+hdiutil detach /Volumes/Discord 
+
+rm /tmp/Discord.dmg
+
+exit 0
