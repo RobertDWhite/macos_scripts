@@ -1,0 +1,17 @@
+#!/bin/bash/
+
+#download atom
+curl -o /tmp/atom.zip -L https://atom.io/download/mac
+
+#unzip
+cd /tmp && unzip /tmp/atom.zip
+
+#install atom
+cp -r /tmp/Atom.app /Applications
+
+#cleanup
+rm -rf /tmp/Atom*
+rm /tmp/atom*
+
+#exit
+exit 0
