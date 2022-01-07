@@ -1,0 +1,10 @@
+curl -o /tmp/appcleaner.zip -L https://freemacsoft.net/downloads/AppCleaner_3.6.zip
+
+cd /tmp && unzip /tmp/appcleaner.zip
+
+cp -r /tmp/AppCleaner.app /Applications
+
+rm /tmp/appcleaner.zip
+rm -rf /tmp/AppCleaner.app
+
+exit 0
